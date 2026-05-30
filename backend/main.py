@@ -46,10 +46,9 @@ else:
     _cors_kwargs["allow_origins"] = settings.cors_origins_list
     _cors_kwargs["allow_credentials"] = True
 
-app.add_middleware(CORSMiddleware, **_cors_kwargs)
-
 app.add_middleware(SecurityHeadersMiddleware)
 app.add_middleware(RequestLoggingMiddleware)
+app.add_middleware(CORSMiddleware, **_cors_kwargs)
 
 # ルーター登録
 app.include_router(search.router, prefix="/api", tags=["search"])
