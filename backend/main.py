@@ -34,13 +34,19 @@ async def rate_limit_handler(request: Request, exc: RateLimitExceeded):
     )
 
 # CORS
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=settings.cors_origins_list,
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+_cors_kwargs: dict = {
+    "allow_methods": ["*"],
+    "allow_headers": ["*"],
+}
+if settings.cors_origin_regex:
+    _cors_kwargs["allow_origin_regex"] = settings.cors_origin_regex
+    _cors_kwargs["allow_origins"] = settings.cors_origins_list
+    _cors_kwargs["allow_credentials"] = True
+else:
+    _cors_kwargs["allow_origins"] = settings.cors_origins_list
+    _cors_kwargs["allow_credentials"] = True
+
+app.add_middleware(CORSMiddleware, **_cors_kwargs)
 
 app.add_middleware(SecurityHeadersMiddleware)
 app.add_middleware(RequestLoggingMiddleware)
