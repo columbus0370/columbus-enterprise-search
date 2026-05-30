@@ -42,6 +42,12 @@ def generate_sales_email(
     employees: int | None,
     prefecture: str,
     custom_context: str = "",
+    sender_name: str = "",
+    sender_title: str = "",
+    sender_company: str = "",
+    sender_email: str = "",
+    sender_phone: str = "",
+    sender_service: str = "",
 ) -> tuple[str, str]:
     """Claude API で営業メールを生成し (subject, body) を返す"""
     client = _get_client()
@@ -52,6 +58,12 @@ def generate_sales_email(
         employees=employees,
         prefecture=prefecture,
         custom_context=custom_context,
+        sender_name=sender_name,
+        sender_title=sender_title,
+        sender_company=sender_company,
+        sender_email=sender_email,
+        sender_phone=sender_phone,
+        sender_service=sender_service,
     )
 
     try:

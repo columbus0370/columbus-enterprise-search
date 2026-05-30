@@ -19,6 +19,12 @@ async def generate_proposal(request: Request, body: ProposalRequest):
             employees=body.employees,
             prefecture=body.prefecture,
             custom_context=body.custom_context,
+            sender_name=body.sender.name,
+            sender_title=body.sender.title,
+            sender_company=body.sender.company,
+            sender_email=body.sender.email,
+            sender_phone=body.sender.phone,
+            sender_service=body.sender.service,
         )
     except ClaudeAPIError as e:
         raise HTTPException(status_code=503, detail=e.message)

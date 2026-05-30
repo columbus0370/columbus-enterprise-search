@@ -20,6 +20,15 @@ class SearchRequest(BaseModel):
     page: int = Field(default=1, ge=1)
 
 
+class SenderProfile(BaseModel):
+    name: str = Field(default="", max_length=50)
+    title: str = Field(default="", max_length=50)
+    company: str = Field(default="", max_length=100)
+    email: str = Field(default="", max_length=100)
+    phone: str = Field(default="", max_length=30)
+    service: str = Field(default="", max_length=200)
+
+
 class ProposalRequest(BaseModel):
     company_name: str = Field(max_length=100)
     industry: str
@@ -27,3 +36,4 @@ class ProposalRequest(BaseModel):
     employees: int | None = None
     prefecture: str = ""
     custom_context: str = Field(default="", max_length=300)
+    sender: SenderProfile = Field(default_factory=SenderProfile)

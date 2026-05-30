@@ -17,7 +17,11 @@ export const searchCompanies = async (params) => {
   return data;
 };
 
-export const generateProposal = async (companyInfo) => {
-  const { data } = await api.post('/api/generate-proposal', companyInfo);
+export const generateProposal = async ({ sender, ...companyInfo }) => {
+  const payload = {
+    ...companyInfo,
+    sender: sender || {},
+  };
+  const { data } = await api.post('/api/generate-proposal', payload);
   return data.data;
 };
