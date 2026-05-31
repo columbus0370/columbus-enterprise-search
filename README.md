@@ -45,6 +45,21 @@
 
 ## 🖥 スクリーンショット
 
+ホーム画面
+<img width="1879" height="813" alt="image" src="https://github.com/user-attachments/assets/be24d5a0-df56-4b36-b44f-ef42ee3a31f5" />
+
+検索結果画面
+<img width="1863" height="812" alt="企業検索結果" src="https://github.com/user-attachments/assets/374e2d17-999e-4d0a-b340-afa0744453d5" />
+
+CSVダウンロード動作
+<img width="1854" height="410" alt="image" src="https://github.com/user-attachments/assets/016d36e8-f214-4ce3-aeab-b563445296ee" />
+
+メール生成画面
+<img width="1863" height="812" alt="メール生成画面" src="https://github.com/user-attachments/assets/e0162728-467f-402f-a791-1f0e5351a849" />
+
+
+
+
 | 企業検索 | 営業メール生成 | 事業者情報登録 |
 |----------|---------------|----------------|
 | 業種・地域・財務条件で絞り込み | ワンクリックでAIが文面を生成 | 担当者情報を登録して自動反映 |
